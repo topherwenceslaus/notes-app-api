@@ -1,11 +1,5 @@
 service: notes-app-2-api
 
-# Use the serverless-webpack plugin to transpile ES6
-#  POST - https://4iia6dxg95.execute-api.us-east-2.amazonaws.com/prod/notes
-#   GET - https://4iia6dxg95.execute-api.us-east-2.amazonaws.com/prod/notes/{id}
-#   GET - https://4iia6dxg95.execute-api.us-east-2.amazonaws.com/prod/notes
-#   PUT - https://4iia6dxg95.execute-api.us-east-2.amazonaws.com/prod/notes/{id}
-#   DELETE - https://4iia6dxg95.execute-api.us-east-2.amazonaws.com/prod/notes/{id}
 plugins:
   - serverless-webpack
   - serverless-offline
@@ -122,28 +116,3 @@ resources:
   - ${file(resources/cognito-user-pool.yml)}
   - ${file(resources/cognito-identity-pool.yml)}                                
 
-Resources:
-  AttachmentsBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      # Set the CORS policy
-      CorsConfiguration:
-        CorsRules:
-          -
-            AllowedOrigins:
-              - '*'
-            AllowedHeaders:
-              - '*'
-            AllowedMethods:
-              - GET
-              - PUT
-              - POST
-              - DELETE
-              - HEAD
-            MaxAge: 3000
-
-# Print out the name of the bucket that is created
-Outputs:
-  AttachmentsBucketName:
-    Value:
-      Ref: AttachmentsBucket  
