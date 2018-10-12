@@ -1,0 +1,35 @@
+aws cognito-idp sign-up \
+  --region us-east-2 \
+  --client-id 4e3os9dk8pnl7jqsmpgm388l5e \
+  --username admin@example.com \
+  --password Passw0rd!
+
+aws cognito-idp admin-confirm-sign-up \
+  --region us-east-2 \
+  --user-pool-id us-east-2_YEsQg3n7J \
+  --username admin@example.com  
+
+aws cognito-idp sign-up \
+  --region us-east-2 \
+  --client-id 1l4e6qugqpnafoc6hnoqebc159 \
+  --username admin@example.com \
+  --password Passw0rd!
+
+  aws cognito-idp admin-confirm-sign-up \
+  --region us-east-2 \
+  --user-pool-id us-east-2_IWJFYZzOn \
+  --username admin@example.com
+
+
+  npx aws-api-gateway-cli-test \
+--username='admin@example.com' \
+--password='Passw0rd!' \
+--user-pool-id='us-east-2_YEsQg3n7J' \
+--app-client-id='4e3os9dk8pnl7jqsmpgm388l5e' \
+--cognito-region='us-east-2' \
+--identity-pool-id='us-east-2:3c8e9e4b-4524-4d8b-86cc-ea65a7e48b28' \
+--invoke-url='https://fi17h8ego4.execute-api.us-east-2.amazonaws.com/dev' \
+--api-gateway-region='us-east-2' \
+--path-template='/notes' \
+--method='POST' \
+--body='{"content":"hello world","attachment":"hello.jpg"}'
