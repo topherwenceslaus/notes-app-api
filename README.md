@@ -6,5 +6,5 @@
     AWS s3
     SEED CI
     
-    
+    Demo: https://angry-franklin-2631a8.netlify.com/
 
